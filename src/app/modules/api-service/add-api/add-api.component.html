@@ -1,0 +1,114 @@
+<form (ngSubmit)="createService()" #serviceForm="ngForm" autocomplete="off">
+  <mat-form-field appearance="fill">
+    <mat-label>Name</mat-label>
+    <input
+      matInput
+      placeholder="Enter name"
+      [(ngModel)]="service.name"
+      name="name"
+      #name="ngModel"
+      required
+    />
+    <mat-error *ngIf="name.invalid && name.touched">
+      Name is required.
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Description</mat-label>
+    <textarea
+      matInput
+      placeholder="Enter description"
+      [(ngModel)]="service.description"
+      name="description"
+      #description="ngModel"
+      required
+    ></textarea>
+    <mat-error *ngIf="description.invalid && description.touched">
+      Description is required.
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Version</mat-label>
+    <input
+      matInput
+      placeholder="Enter version"
+      [(ngModel)]="service.version"
+      name="version"
+      #version="ngModel"
+      required
+    />
+    <mat-error *ngIf="version.invalid && version.touched">
+      Version is required.
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Endpoint</mat-label>
+    <input
+      matInput
+      placeholder="Enter endpoint"
+      [(ngModel)]="service.endpoint"
+      name="endpoint"
+      #endpoint="ngModel"
+      required
+    />
+    <mat-error *ngIf="endpoint.invalid && endpoint.touched">
+      Endpoint is required.
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Configuration</mat-label>
+    <input
+      matInput
+      placeholder="Enter configuration"
+      [(ngModel)]="service.configuration"
+      name="configuration"
+      #configuration="ngModel"
+      required
+    />
+    <mat-error *ngIf="configuration.invalid && configuration.touched">
+      Configuration is required.
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Pricing</mat-label>
+    <input
+      matInput
+      placeholder="Enter pricing"
+      [(ngModel)]="service.pricing"
+      name="pricing"
+      #pricing="ngModel"
+      required
+    />
+    <mat-error *ngIf="pricing.invalid && pricing.touched">
+      Pricing is required.
+    </mat-error>
+  </mat-form-field>
+
+  <mat-checkbox [(ngModel)]="service.status" name="status">Status</mat-checkbox>
+
+  <section>
+    <div class="example-button-row button-container">
+      <button
+        mat-raised-button
+        color="primary"
+        type="submit"
+        [disabled]="serviceForm.invalid"
+      >
+        Add
+      </button>
+      <button
+        mat-raised-button
+        color="warn"
+        type="button"
+        (click)="clearForm()"
+      >
+        Clear
+      </button>
+    </div>
+  </section>
+</form>
